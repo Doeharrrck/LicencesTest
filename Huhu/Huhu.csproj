@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="SETLOCAL enableDelayedExpansion&#xD;&#xA;&#xD;&#xA;SET axprotector=&quot;C:\Program Files (x86)\WIBU-SYSTEMS\AxProtector\Devkit\bin\AxProtector.exe&quot;&#xD;&#xA;SET axprotectorNET=&quot;C:\Program Files (x86)\WIBU-SYSTEMS\AxProtector\Devkit\bin\netstandard2.0\AxProtectorNet.exe&quot;&#xD;&#xA;SET workingDir=$(ProjectDir)bin\$(Platform)\$(Configuration)\$(TargetFramework)&#xD;&#xA;&#xD;&#xA;IF &quot;$(Configuration)&quot; == &quot;Release&quot; (&#xD;&#xA;    FOR %25%25f IN (&quot;%25workingDir%25\*&quot;) DO (&#xD;&#xA;&#xD;&#xA;        SET name=%25%25~nf&#xD;&#xA;        SET extension=%25%25~xf&#xD;&#xA;        SET fullname=!name!!extension!&#xD;&#xA;&#xD;&#xA;        IF &quot;!extension!&quot;==&quot;.exe&quot; (&#xD;&#xA;            rem %25axprotector%25 -x -kcm -f6000394 -p1812269 -cf0 -d:6.20 -fw:3.00 -sl -ns -cav -cas100 -wu1000 -we100 -eac -eec -eusc1 -emc -car30,3 -u:&quot;UserMessage&quot; -v -cag23 -caa7 -# -o:&quot;%25workingDir%25\protected\!fullname!&quot; %25%25f&#xD;&#xA;        ) ELSE (&#xD;&#xA;            IF &quot;!extension!&quot;==&quot;.dll&quot; (&#xD;&#xA;                %25axprotectorNET%25 -kcm -f6000394 -p1812666 -cf0 -d:6.20 -fw:3.00 -sl -ns -cml10 -cav1 -wu1000 -we100 -eac -eec -eusc1 -emc -car30,3 -ui -v -cag17 -trap -caa1 -# -o:&quot;%25workingDir%25\protected\!fullname!&quot; %25%25f&#xD;&#xA;            )&#xD;&#xA;        )&#xD;&#xA;    )&#xD;&#xA;&#xD;&#xA;    XCOPY /Y /S %25workingDir%25\protected\ %25workingDir%25&#xD;&#xA;&#xD;&#xA;    RMDIR %25workingDir%25\protected\ /S /Q&#xD;&#xA;)&#xD;&#xA;" />
+  </Target>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj" />
+  </ItemGroup>
+
+</Project>

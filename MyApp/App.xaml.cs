@@ -1,7 +1,7 @@
 ﻿using Model;
 using System.Windows;
 
-namespace Huhu
+namespace MyApp
 {
     /// <summary>
     /// Interaction logic for App.xaml

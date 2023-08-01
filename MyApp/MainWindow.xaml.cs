@@ -2,7 +2,7 @@
 using System;
 using System.Windows;
 
-namespace Huhu
+namespace MyApp
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

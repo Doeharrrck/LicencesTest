@@ -1,9 +1,14 @@
-﻿using System.Text;
+﻿using System.ComponentModel;
+using System.Text;
 
 namespace Model
 {
-    public class ModelClass
+    public class ModelClass : INotifyPropertyChanged
     {
+        private string name = "Test!";
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public string ModelText => this.GetHuhu();
 
         private string GetHuhu()
@@ -16,5 +21,17 @@ namespace Model
 
             return sb.ToString();
         }
+
+        public string Name
+        {
+            get => this.name;
+            set
+            {
+                this.name = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Name"));
+            }
+        }
+
+        
     }
 }

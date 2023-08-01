@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Huhu", "Huhu\Huhu.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Model", "Model\Model.csproj", "{D028D722-FBED-4807-B56C-8A5F818391A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LicenseHandling", "LicenseHandling\LicenseHandling.csproj", "{7383CF97-5CF6-42F4-8DE9-6BDB45B85F2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,14 @@ Global
 		{D028D722-FBED-4807-B56C-8A5F818391A2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D028D722-FBED-4807-B56C-8A5F818391A2}.Release|x64.ActiveCfg = Release|x64
 		{D028D722-FBED-4807-B56C-8A5F818391A2}.Release|x64.Build.0 = Release|x64
+		{7383CF97-5CF6-42F4-8DE9-6BDB45B85F2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7383CF97-5CF6-42F4-8DE9-6BDB45B85F2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7383CF97-5CF6-42F4-8DE9-6BDB45B85F2B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{7383CF97-5CF6-42F4-8DE9-6BDB45B85F2B}.Debug|x64.Build.0 = Debug|Any CPU
+		{7383CF97-5CF6-42F4-8DE9-6BDB45B85F2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7383CF97-5CF6-42F4-8DE9-6BDB45B85F2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7383CF97-5CF6-42F4-8DE9-6BDB45B85F2B}.Release|x64.ActiveCfg = Release|Any CPU
+		{7383CF97-5CF6-42F4-8DE9-6BDB45B85F2B}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

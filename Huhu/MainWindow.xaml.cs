@@ -12,6 +12,7 @@ namespace Huhu
         public MainWindow(ModelClass model)
         {
             InitializeComponent();
+            DataContext = model;
 
             try
             {

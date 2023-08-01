@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net4.8</TargetFramework>
+    <!--<Nullable>enable</Nullable>-->
+    <UseWPF>true</UseWPF>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\SuperCactus.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LicenseHandling\LicenseHandling.csproj" />
+    <ProjectReference Include="..\Model\Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\SuperCactus.ico" />
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="ECHO Platform = $(Platform)&#xD;&#xA;ECHO Configuration = $(Configuration)&#xD;&#xA;ECHO TargetFramework = $(TargetFramework)&#xD;&#xA;&#xD;&#xA;IF EXIST &quot;$(ProjectDir)..\SimulatorApp\bin\$(Platform)\$(Configuration)\$(TargetFramework)&quot; (&#xD;&#xA;    COPY /Y &quot;$(ProjectDir)..\SimulatorApp\bin\$(Platform)\$(Configuration)\$(TargetFramework)\*.json&quot; &quot;$(TargetDir)&quot;&#xD;&#xA;) ELSE (&#xD;&#xA;    IF EXIST &quot;$(ProjectDir)..\SimulatorApp\bin\$(Configuration)\$(TargetFramework)&quot; (&#xD;&#xA;        COPY /Y &quot;$(ProjectDir)..\SimulatorApp\bin\$(Configuration)\$(TargetFramework)\*.json&quot; &quot;$(TargetDir)&quot;&#xD;&#xA;    )&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;REM GOTO END&#xD;&#xA;&#xD;&#xA;SETLOCAL enableDelayedExpansion&#xD;&#xA;&#xD;&#xA;REM SET axprotectorNET=&quot;C:\Program Files (x86)\WIBU-SYSTEMS\AxProtector\Devkit\bin\netstandard2.0\AxProtectorNet.exe&quot;&#xD;&#xA;SET axprotectorNET=&quot;C:\Program Files (x86)\WIBU-SYSTEMS\AxProtector\Devkit\bin\AxProtectorNet.exe&quot;&#xD;&#xA;&#xD;&#xA;SET workingDir=$(ProjectDir)bin\$(Platform)\$(Configuration)\$(TargetFramework)&#xD;&#xA;&#xD;&#xA;IF &quot;$(Configuration)&quot; == &quot;Debug&quot; (&#xD;&#xA;&#xD;&#xA;    IF NOT EXIST &quot;%25workingDir%25\protected&quot; (&#xD;&#xA;         MKDIR &quot;%25workingDir%25\protected&quot;&#xD;&#xA;    ) &#xD;&#xA; &#xD;&#xA;    %25axprotectorNET%25 -kcm -f6000394 -p1812269 -cf0 -d:6.20 -fw:3.00 -sln -ns -cml10 -cav1 -wu1000 -we100 -eac -eec -emc -car10,3 -um:LicenseHandling.dll -v -# -o:&quot;%25workingDir%25\protected\Model.dll&quot; &quot;%25workingDir%25\Model.dll&quot;&#xD;&#xA;&#xD;&#xA;    XCOPY /Y /S %25workingDir%25\protected\ %25workingDir%25&#xD;&#xA;&#xD;&#xA;    REM RMDIR %25workingDir%25\protected\ /S /Q&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;:END" />
+  </Target>
+
+</Project>

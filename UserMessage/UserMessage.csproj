@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <GenerateAssemblyTrademarkAttribute>true</GenerateAssemblyTrademarkAttribute>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyName>UserMessage</AssemblyName>
+    <AssemblyTitle>UserMessage</AssemblyTitle>
+    <Product>AxProtector for .NET</Product>
+    <InformationalVersion>10.20.3122.201 of 2018-Jun-08</InformationalVersion>
+    <RootNamespace>UserMessage</RootNamespace>
+    <Version>10.20.3122.201</Version>
+    <Authors>WIBU-SYSTEMS AG</Authors>
+    <Company>WIBU-SYSTEMS AG, www.wibu.com</Company>
+    <Copyright>Copyright (C) 2006-2018 WIBU-SYSTEMS AG</Copyright>
+    <Trademark>CodeMeter (R) and WibuKey (R) are registered trademarks of WIBU-SYSTEMS AG</Trademark>
+    <Description>UserMessage DLL for AxProtector for .NET</Description>
+    <AssemblyVersion>10.20.3122.201</AssemblyVersion>
+    <SignAssembly>false</SignAssembly>
+    <DelaySign>false</DelaySign>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageReleaseNotes>10.20.3122.201 of 2018-Jun-08</PackageReleaseNotes>
+    <PackageId>UserMessage</PackageId>
+    <PackageTags>UserMessage for Netstandard</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Reflection.AssemblyTrademarkAttribute" Condition="'$(GenerateAssemblyTrademarkAttribute)' == 'true'">
+      <_Parameter1>CodeMeter (R) and WibuKey (R) are registered trademarks of WIBU-SYSTEMS AG</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+</Project>

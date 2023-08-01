@@ -14,13 +14,13 @@
                  Width="200"
                  HorizontalAlignment="Center"
                  DockPanel.Dock="Top"
-                 Text="{Binding Name}" />
+                 Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
 
         <TextBox x:Name="OtherTextBox"
                  Width="200"
                  HorizontalAlignment="Center"
                  DockPanel.Dock="Top"
-                 Text="{Binding Name}" />
+                 Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
 
         <TextBlock x:Name="ViewTextBlock"
                    HorizontalAlignment="Center"
